@@ -1,0 +1,83 @@
+title: Video
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: video_type
+            field:
+              options:
+                -
+                  key: upload
+                  value: Upload
+                -
+                  key: embed
+                  value: Embed
+              type: button_group
+              display: 'Video Type'
+          -
+            handle: video
+            field:
+              max_files: 1
+              mode: grid
+              container: assets
+              folder: video
+              type: assets
+              display: Video
+              if:
+                video_type: 'equals upload'
+          -
+            handle: video_poster
+            field:
+              max_files: 1
+              mode: grid
+              container: assets
+              folder: posters
+              type: assets
+              display: 'Video Poster'
+              instructions: 'Thumbnail for video player'
+          -
+            handle: video_embed
+            field:
+              type: video
+              display: 'Video Embed'
+              if:
+                video_type: 'equals embed'
+          -
+            import: generic
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select

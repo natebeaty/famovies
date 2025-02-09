@@ -1,0 +1,18 @@
+:root {
+	--bg: #eee;
+	--text: #222;
+	--cardBg: #fff;
+	--links: #0F80FF;
+	--sans-serif: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
+	--tagBg: rgba(15, 128, 255, 0.5);
+	--tabText: #fff;
+	--tagBorder: rgba(15, 128, 255, 0.75);
+}
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+  	--bg: #222;
+  	--text: #fff;
+  	--cardBg: #333;
+  }
+}

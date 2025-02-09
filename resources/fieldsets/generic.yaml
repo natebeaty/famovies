@@ -1,0 +1,8 @@
+title: Generic
+fields:
+  -
+    handle: caption
+    field:
+      automatic_links: true
+      type: markdown
+      display: Caption

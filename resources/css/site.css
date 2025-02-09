@@ -1,5 +1,96 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "globals/reset.css";
+@import "globals/variables.css";
 
-/* This is all you. */
+html {
+	background: var(--bg) var(--backgroundImage) no-repeat center center fixed;
+	background-size: cover;
+	background-blend-mode: multiply;
+}
+body {
+	padding: 20px;
+	color: var(--text);
+	font-family: var(--sans-serif);
+}
+nav {
+    ul {
+        display: flex;
+        li.tagline {
+            flex: 1;
+        }
+    }
+}
+header {
+	text-align: center;
+	margin: 0 0 4rem;
+}
+footer {
+	margin: 4rem 0;
+	text-align: center;
+}
+h1 {
+	font: 900 34px/1.2 var(--sans-serif);
+}
+h2 {
+	font: 800 24px/1.2 var(--sans-serif);
+}
+a {
+	color: var(--links);
+}
+nav {
+	text-align: center;
+}
+
+.wrapper {
+  margin-inline: auto;
+  padding-inline: 1rem;
+  max-width: 60rem;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+.card {
+	max-width: 500px;
+	margin: 0 auto;
+	background: var(--cardBg);
+	border-radius: 5px;
+  --tw-shadow: 0 25px 28px -26px rgba(0, 0, 0, .5), 0 16px 50px 1px rgba(0, 0, 0, .11);
+  --tw-shadow-colored: 0 25px 28px -26px var(--tw-shadow-color), 0 16px 50px 1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: border 1.5s;
+}
+.card:hover {
+	border: 1px solid rgba(255,255,255,0.55);
+}
+video {
+	width: 100%;
+	height: auto;
+	border-radius: 5px 5px 0 0;
+}
+
+.card__meta {
+	padding: 0 20px 20px;
+}
+
+ul.inline {
+	li {
+		display: inline-block;
+	}
+}
+
+.tags {
+    padding: 1rem 0;
+}
+a.tag {
+	padding: 0.25rem 0.5rem;
+	background: var(--tagBg);
+	color: var(--tagText);
+	border-radius: 6px;
+	transition: border 0.15s;
+	border: 1px solid rgba(0,0,0,0);
+	&:hover {
+		border: 1px solid var(--tagBorder);
+	}
+}
