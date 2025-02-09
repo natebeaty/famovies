@@ -5,11 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ title ?? site:name }}</title>
+        <meta name="description" content="{{ global:tagline ?? "It's a website" }}">
+        <meta property="og:title" content="{{ title ?? site:name }}">
+        <meta property="og:site_name" content="{{ site_name ?? config:app:name }}">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="{{ site:locale }}">
+        <meta property="og:description" content="{{ global:tagline ?? "It's a website" }}">
+        <link rel="sitemap" href="/sitemap.xml" type="application/xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        <style>
+            :root {
+              --backgroundImage: url(http://famovies.localhost/assets/backgrounds/2014-04-05-14.31.34-1.jpeg);
+            }
+        </style>
     </head>
-    <body class="bg-gray-100 font-sans leading-normal text-gray-800">
-        <div class="mx-auto px-2 lg:min-h-screen flex flex-col items-center justify-center">
+    <body>
+        {{ partial:nav }}
+        <main class="wrapper">
             {{ template_content }}
-        </div>
+        </main>
+        {{ partial:footer }}
     </body>
 </html>

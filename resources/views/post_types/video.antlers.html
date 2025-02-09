@@ -1,0 +1,13 @@
+{{ if video_type === "upload" }}
+    <video controls preload="none" poster="{{ video_poster }}">
+        <source src="{{ video }}" type="video/mp4">
+    </video>
+{{ else }}
+    {{ if video_url | is_embeddable }}
+        <iframe src="{{ video_url | embed_url }}"></iframe>
+    {{ else }}
+        <video controls>
+            <source src="{{ video_url }}" type="video/mp4">
+        </video>
+    {{ /if }}
+{{ /if }}

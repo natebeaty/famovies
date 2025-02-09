@@ -1,0 +1,15 @@
+<article>
+    <header>
+        <h1>Tags</h1>
+    </header>
+
+    <section>
+        <ul role="list" class="inline">
+        {{ tags sort="title" }}
+            <li>
+                <a class="tag" href="{{ url }}">#{{ title }}</a>
+            </li>
+            {{ /tags }}
+        </ul>
+    </section>
+</article>
