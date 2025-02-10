@@ -14,6 +14,7 @@
         <link rel="sitemap" href="/sitemap.xml" type="application/xml">
         <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
+        {{ cache for="12 hour" }}
         <script>
             const background_images = [
                 {{ assets container="s3" folder="backgrounds" sort="random" }}
@@ -23,6 +24,7 @@
             // Set random bg
             document.querySelector(':root').style.setProperty("--backgroundImage", `url("${background_images[Math.floor(Math.random() * background_images.length)]}"`);
         </script>
+        {{ /cache }}
     </head>
     <body>
         {{ partial:nav }}
