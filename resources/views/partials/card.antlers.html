@@ -2,8 +2,10 @@
     {{ partial src="post_types/{blueprint}" }}
     <div class="card__meta">
         {{ partial:caption }}
-        <a href="{{ url }}">
-            Posted {{ date format="M j Y" }}
-        </a>
+        <div class="card__posted">
+            <a class="quiet" href="{{ url }}">
+                Posted {{ date format="M j Y" }}
+            </a>
+        </div>
     </div>
 </div>

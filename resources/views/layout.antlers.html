@@ -14,11 +14,15 @@
         <link rel="sitemap" href="/sitemap.xml" type="application/xml">
         <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
-        <style>
-            :root {
-              --backgroundImage: url(http://famovies.localhost/assets/backgrounds/2014-04-05-14.31.34-1.jpeg);
-            }
-        </style>
+        <script>
+            const background_images = [
+                {{ assets container="s3" folder="backgrounds" sort="random" }}
+                "{{ permalink }}",
+                {{ /assets }}
+            ];
+            // Set random bg
+            document.querySelector(':root').style.setProperty("--backgroundImage", `url("${background_images[Math.floor(Math.random() * background_images.length)]}"`);
+        </script>
     </head>
     <body>
         {{ partial:nav }}

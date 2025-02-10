@@ -29,27 +29,31 @@ tabs:
             field:
               max_files: 1
               mode: grid
-              container: assets
-              folder: video
+              container: s3
+              folder: videos
               type: assets
               display: Video
               if:
                 video_type: 'equals upload'
+              restrict: true
           -
             handle: video_poster
             field:
               max_files: 1
               mode: grid
-              container: assets
+              container: s3
               folder: posters
               type: assets
               display: 'Video Poster'
               instructions: 'Thumbnail for video player'
+              if:
+                video_type: 'equals upload'
+              restrict: true
           -
-            handle: video_embed
+            handle: video_url
             field:
               type: video
-              display: 'Video Embed'
+              display: 'Video URL'
               if:
                 video_type: 'equals embed'
           -

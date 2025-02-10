@@ -4,7 +4,7 @@
     </video>
 {{ else }}
     {{ if video_url | is_embeddable }}
-        <iframe src="{{ video_url | embed_url }}"></iframe>
+        <iframe allow="fullscreen" class="w-full aspect-video" src="{{ video_url | embed_url }}"></iframe>
     {{ else }}
         <video controls>
             <source src="{{ video_url }}" type="video/mp4">

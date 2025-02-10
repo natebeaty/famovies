@@ -1,5 +1,5 @@
 :root {
-	--bg: #eee;
+	--bg: rgba(251,243,205,0.75);
 	--text: #222;
 	--cardBg: #fff;
 	--links: #0F80FF;
@@ -11,8 +11,12 @@
 /* dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-  	--bg: #222;
+  	--bg: rgba(12,18,2,0.85);
   	--text: #fff;
   	--cardBg: #333;
+  }
+  html {
+/*  	background: #000;*/
+/*  		background-blend-mode: multiply;*/
   }
 }

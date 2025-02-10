@@ -55,7 +55,41 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
-            // 'visibility' => 'public', // https://statamic.dev/assets#visibility
+            'cache' => true, // not sure if this does anything
+            'disable_asserts' => true, // https://statamic.dev/tips/optimizing-assets#disable-filesystem-asserts
+            'visibility' => 'public', // https://statamic.dev/assets#visibility
+        ],
+
+        'minio-s3' => [
+            'driver' => 's3',
+            'key' => env('MINIO_ACCESS_KEY_ID'),
+            'secret' => env('MINIO_SECRET_ACCESS_KEY'),
+            'region' => env('MINIO_DEFAULT_REGION'),
+            'bucket' => env('MINIO_BUCKET'),
+            'url' => env('MINIO_URL'),
+            'endpoint' => env('MINIO_ENDPOINT'),
+            'use_path_style_endpoint' => env('MINIO_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => false,
+            'cache' => true,
+            'disable_asserts' => true, // https://statamic.dev/tips/optimizing-assets#disable-filesystem-asserts
+            'visibility' => 'public', // https://statamic.dev/assets#visibility
+        ],
+
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => env('SFTP_HOST'),
+            'port' => env('SFTP_PORT', 22),
+            'username' => env('SFTP_USERNAME'),
+            'password' => env('SFTP_PASSWORD'),
+            'root' => env('SFTP_ROOT'),
+            // 'permPublic' => 0755,
+            // 'directoryPerm' => 0755,
+            'timeout' => 10,
+            'url' => env('SFTP_URL'),
+            'throw' => false,
+            'cache' => true,
+            'disable_asserts' => true, // https://statamic.dev/tips/optimizing-assets#disable-filesystem-asserts
+            'visibility' => 'public',
         ],
 
         'assets' => [
