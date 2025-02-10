@@ -93,7 +93,7 @@ footer {
 }
 
 .card {
-	--flow-space: 2rem;
+	--flow-space: 1rem;
 	max-width: 500px;
 	margin-inline: auto;
 	background: var(--cardBg);
