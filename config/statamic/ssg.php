@@ -57,7 +57,7 @@ return [
     */
 
     'urls' => [
-        //
+        '/posts/tags/'
     ],
 
     /*
