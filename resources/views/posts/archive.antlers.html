@@ -1,0 +1,24 @@
+<header>
+    <h1>Archive</h1>
+</header>
+
+<section>
+    <ul role="list" class="inline center">
+    {{ taxonomy:tags sort="title" }}
+      <li>
+        <a class="tag" href="/posts/tags/{{ slug }}">#{{ title }}</a>
+      </li>
+    {{ /taxonomy:tags }}
+    </ul>
+</section>
+
+<section class="thumbnails">
+    {{ posts = {collection:posts} groupby (date|format('Y') 'year') as 'entries' }}
+      <h2>{{ year }}</h2>
+      <section class="thumbnails">
+      {{ entries }}
+        {{ partial:thumbnail }}
+      {{ /entries }}
+      </section>
+    {{ /posts }}
+</section>
