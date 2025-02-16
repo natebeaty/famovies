@@ -1,7 +1,10 @@
 <section class="posts flow">
-    {{ collection:posts paginate="20" as="posts" }}
+    <header>
+        <h2>Recent Posts</h2>
+    </header>
+    {{ collection:posts paginate="10" as="posts" sort="date:desc" }}
         {{ posts }}
-            {{ partial:card prose="lg:prose-lg" }}
+            {{ partial:card }}
         {{ /posts }}
         {{ partial:pagination }}
     {{ /collection:posts }}
