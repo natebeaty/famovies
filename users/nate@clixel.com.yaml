@@ -2,3 +2,12 @@ name: nate
 super: true
 id: 856d059d-127a-4e90-8593-cabd2475571e
 password_hash: $2y$12$tnyVX9QcjYGaM/kzetzcXemK5hdNdjd3SV/yYIGiOickIwqWeNE5u
+preferences:
+  collections:
+    posts:
+      columns:
+        - title
+        - slug
+        - date
+        - status
+        - tags
