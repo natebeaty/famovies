@@ -7,6 +7,7 @@
 	--tagBg: rgba(15, 128, 255, 0.5);
 	--tabText: #fff;
 	--tagBorder: rgba(15, 128, 255, 0.75);
+	--flow-space: 1rem;
 }
 /* dark mode */
 @media (prefers-color-scheme: dark) {

@@ -40,7 +40,7 @@ a {
 	width: 100%;
 }
 .aspect-video {
-	aspect-ratio: 16 / 9;
+	aspect-ratio: 4 / 3;
 }
 .center {
 	text-align: center;
@@ -48,6 +48,16 @@ a {
 ul.inline {
 	li {
 		display: inline-block;
+	}
+}
+.flex-row {
+	display: flex;
+	justify-content: space-between;
+	.flex-1 {
+		flex: 1;
+	}
+	.flex-2 {
+		flex: 2;
 	}
 }
 
@@ -91,9 +101,14 @@ footer {
 .flow > * + * {
   margin-top: var(--flow-space, 1em);
 }
+/* Desktop styles */
+@media (min-width: 500px) {
+	:root {
+		--flow-space: 2rem;
+	}
+}
 
 .card {
-	--flow-space: 1rem;
 	max-width: 500px;
 	margin-inline: auto;
 	background: var(--cardBg);
@@ -105,8 +120,14 @@ footer {
 .card:hover {
 	--tw-shadow: 0 25px 28px -26px rgba(0, 0, 0, .5), 0 16px 50px 1px rgba(0, 0, 0, .11);
 }
+.card__details {
+	padding: 0 1rem 1rem;
+}
 .card__meta {
-	padding: 0 20px 20px;
+	padding: 1rem 0 0;
+}
+.caption p {
+	margin: 0.5rem 0 0;
 }
 .card__posted {
 	text-align: right;
@@ -124,9 +145,9 @@ video {
 
 
 /* Tag lists */
-.tags {
+/*.tags {
   padding: 1rem 0;
-}
+}*/
 a.tag {
 	padding: 0.25rem 0.5rem;
 	background: var(--tagBg);
@@ -144,23 +165,46 @@ a.tag {
 
 /* Thumbnail view */
 .thumbnails {
-	display: flex;
-	gap: 20px;
+	width: 100%;
+	--gap: 20px;
+	display: inline-flex;
+	flex-flow: row wrap;
+	gap: var(--gap);
 }
 .thumbnail {
-	flex: 0 1 50%;
+	flex: 0 1 calc(50% - 1*var(--gap)/2);
 	img {
+		transition: filter 0.25s ease-in-out;
 		display: block;
 		aspect-ratio: 4/3;
 		object-fit: cover;
 		border-radius: 0.5rem;
 		margin-bottom: 1rem;
 	}
+	&:hover {
+		img {
+			filter: brightness(1.12);
+			outline: 1px solid var(--tagBorder);
+		}
+	}
 }
 
 /* Desktop styles */
 @media (min-width: 500px) {
 	.thumbnail {
-		flex: 0 1 25%;
+		flex: 0 1 calc(20% - 4*var(--gap)/5);
+	}
+}
+
+/* Email nate link */
+.feedback {
+	opacity: 0.5;
+	margin-top: 1rem;
+}
+
+.related-posts {
+	margin: 4rem 0 0;
+	h3 {
+		margin: 0 0 1rem;
 	}
 }
