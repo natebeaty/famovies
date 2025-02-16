@@ -4,6 +4,20 @@
     </header>
 
     <section>
-        {{ partial:card prose="lg:prose-lg" }}
+        {{ partial:card single="true" }}
     </section>
+
+    {{ collection:posts taxonomy:tags="{ tags }" limit="10" as="entries" sort="random" id:not="{ id }" }}
+        {{ unless no_results }}
+        <section class="related-posts">
+            <h3>More Like This:</h3>
+            <div class="thumbnails">
+                {{ entries }}
+                    {{ partial:thumbnail }}
+                {{ /entries }}
+            </div>
+        </section>
+        {{ /unless }}
+    {{ /collection:posts }}
+
 </article>
