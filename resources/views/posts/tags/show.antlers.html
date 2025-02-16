@@ -3,7 +3,7 @@
 </header>
 
 <section class="thumbnails">
-    {{ entries }}
+    {{ entries sort="date:desc" }}
         {{ partial:thumbnail }}
     {{ /entries }}
 </section>
