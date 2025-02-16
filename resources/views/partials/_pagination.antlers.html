@@ -1,16 +1,23 @@
 {{ paginate }}
     {{ if prev_page || next_page }}
-        <div class="flex justify-center space-x-8">
+        <div class="flex-row">
+            <div class="previous flex-1">
             {{ if prev_page }}
-            <a href="{{ prev_page }}">
-                {{ svg src="assets/icons/left" class="w-10 h-10 hover:text-indigo-800 scale-100 hover:scale-[1.1]" aria-label="Go Back" role="img" }}
+            <a class="tag" href="{{ prev_page }}">
+                &larr; Previous Page
             </a>
             {{ /if }}
-            {{ if next_page }}
-            <a href="{{ next_page }}">
-                {{ svg src="assets/icons/right" class="w-10 h-10 hover:text-indigo-800 scale-100 hover:scale-[1.1]" aria-label="Go Forward" role="img" }}
-            </a>
-            {{ /if }}
+            </div>
+            <div class="center flex-2">
+                <a href="/posts/archive" class="tag">Archive</a>
+            </div>
+            <div class="next flex-1">
+                {{ if next_page }}
+                <a class="tag flex-2" href="{{ next_page }}">
+                    Next Page &rarr;
+                </a>
+                {{ /if }}
+            </div>
         </div>
     {{ /if }}
 {{ /paginate }}
