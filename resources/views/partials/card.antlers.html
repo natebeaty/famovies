@@ -1,11 +1,28 @@
 <div class="card">
     {{ partial src="post_types/{blueprint}" }}
-    <div class="card__meta">
-        {{ partial:caption }}
-        <div class="card__posted">
-            <a class="quiet" href="{{ url }}">
-                Posted {{ date format="M j Y" }}
-            </a>
+    <div class="card__details">
+        {{ if !single }}
+            <h3><a href="{{ url }}">{{ title }}</a></h3>
+        {{ /if }}
+        {{ if caption }}
+        <div class="caption">
+            {{ caption }}
         </div>
+        {{ /if }}
+        <div class="card__meta">
+            {{ if tags }}
+            <div class="tags">
+                {{ tags }}
+                    <a class="tag" href="{{ url }}"><span>#</span>{{ title }}</a>
+                {{ /tags }}
+            </div>
+            {{ /if }}
+        </div>
+        {{ if single }}
+        <div class="feedback flex-row">
+            <span>Posted {{ date format="M j Y" }}</span>
+            <a href="mailto:nate@clixel.com?subject=Feedback for video: {{ title }}">Email Nate about this video</a>
+        </div>
+        {{ /if }}
     </div>
 </div>
