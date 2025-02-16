@@ -13,6 +13,12 @@ tabs:
               validate:
                 - required
           -
+            handle: video_date
+            field:
+              type: date
+              display: 'Video Date'
+              width: 50
+          -
             handle: video_type
             field:
               options:
@@ -24,6 +30,7 @@ tabs:
                   value: Embed
               type: button_group
               display: 'Video Type'
+              width: 50
           -
             handle: video
             field:
