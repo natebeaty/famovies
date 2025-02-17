@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ title ?? site:name }}</title>
-        <meta name="description" content="{{ global:tagline ?? "It's a website" }}">
-        <meta property="og:title" content="{{ title ?? site:name }}">
+        <title>{{ seo_title ?? title ?? site:name }}</title>
+        <meta name="description" content="{{ seo_description ?? global:seo_description ?? global:tagline ?? '' }}">
+        <meta property="og:title" content="{{ seo_title ?? title ?? site:name }}">
         <meta property="og:site_name" content="{{ site_name ?? config:app:name }}">
         <meta property="og:type" content="website">
-        <meta property="og:image" content="/assets/share-image.jpg">
+        <meta property="og:image" content="{{ share_image ?? video_poster ?? global:share_image }}">
         <meta property="og:locale" content="{{ site:locale }}">
-        <meta property="og:description" content="{{ global:tagline ?? "It's a website" }}">
+        <meta property="og:description" content="{{ seo_description ?? global:seo_description ?? global:tagline ?? '' }}">
         <link rel="sitemap" href="/sitemap.xml" type="application/xml">
         <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
         {{ vite src="resources/js/site.js|resources/css/site.css" }}

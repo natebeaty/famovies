@@ -65,6 +65,11 @@ tabs:
                 video_type: 'equals embed'
           -
             import: generic
+      -
+        display: SEO
+        fields:
+          -
+            import: seo
   sidebar:
     display: Sidebar
     sections:

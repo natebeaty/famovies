@@ -1,0 +1,25 @@
+title: SEO
+fields:
+  -
+    handle: seo_title
+    field:
+      character_limit: 69
+      autocomplete: 'off'
+      type: text
+      display: 'SEO Title'
+      instructions: 'Custom title override to improve SEO'
+  -
+    handle: seo_description
+    field:
+      character_limit: 160
+      type: textarea
+      display: 'SEO Description'
+      instructions: 'Used for meta description to improve SEO'
+  -
+    handle: share_image
+    field:
+      max_files: 1
+      mode: grid
+      container: s3
+      type: assets
+      display: 'Share Image'
