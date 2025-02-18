@@ -56,6 +56,18 @@ tabs:
               if:
                 video_type: 'equals upload'
               restrict: true
+              width: 50
+          -
+            handle: reel_photo
+            field:
+              max_files: 1
+              mode: grid
+              container: s3
+              folder: videos
+              dynamic: slug
+              type: assets
+              display: 'Reel Photo'
+              width: 50
           -
             handle: video_url
             field:
