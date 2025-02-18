@@ -10,3 +10,4 @@ Route::statamic('posts/archive', 'posts/archive')->name('archive');
 Route::statamic('posts/type/{type}', 'type')->name('posts.type');
 Route::statamic('sitemap.xml', 'sitemap', ['content_type' => 'text/xml'])->name('sitemap');
 Route::statamic('feed.xml', 'feed', ['content_type' => 'text/xml'])->name('feed');
+Route::statamic('entries.json', 'entries', ['content_type' => 'text/json'])->name('entries');

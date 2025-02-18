@@ -1,0 +1,31 @@
+{{ cache for="12 hour" }}
+{
+  "entries" : [
+    {{ collection:posts }}
+      {
+        "title": "{{ title }}",
+        "url": "{{ permalink }}",
+        "caption": "{{ caption }}",
+        "image": "{{ video_poster }}",
+        "type": "{{ blueprint }}",
+        "tags": [
+        {{ tags }}
+          {
+            "title": "{{ title }}",
+            "slug": "{{ slug }}"
+          }{{ if not last }},{{ /if }}
+        {{ /tags }}
+        ]
+      }{{ if not last }},{{ /if }}
+    {{ /collection:posts }}
+  ],
+  "tags" : [
+  {{ taxonomy:tags sort="title" }}
+  {
+    "title": "{{ title }}",
+    "slug": "{{ slug }}"
+  }{{ if not last }},{{ /if }}
+  {{ /taxonomy:tags }}
+  ]
+}
+{{ /cache }}
