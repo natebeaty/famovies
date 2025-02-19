@@ -52,7 +52,6 @@ tabs:
               folder: posters
               type: assets
               display: 'Video Poster'
-              instructions: 'Thumbnail for video player'
               if:
                 video_type: 'equals upload'
               restrict: true
