@@ -3,17 +3,14 @@
   "entries" : [
     {{ collection:posts }}
       {
-        "title": "{{ title }}",
+        "title": "{{ title | sanitize(true) }}",
         "url": "{{ permalink }}",
-        "caption": "{{ caption }}",
-        "image": "{{ video_poster }}",
+        "caption": "{{ caption | trim | sanitize(true) }}",
+        "image": "{{ if video_type === "upload" }}{{ video_poster }}{{ else }}https://img.youtube.com/vi/{{ video_url | getYoutubeId }}/mqdefault.jpg{{ /if }}",
         "type": "{{ blueprint }}",
         "tags": [
         {{ tags }}
-          {
-            "title": "{{ title }}",
-            "slug": "{{ slug }}"
-          }{{ if not last }},{{ /if }}
+          "{{ slug }}"{{ if not last }},{{ /if }}
         {{ /tags }}
         ]
       }{{ if not last }},{{ /if }}
