@@ -6,7 +6,9 @@
 	--sans-serif: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", Segoe UI Symbol, "Noto Color Emoji";
 	--tagBg: rgba(15, 128, 255, 0.5);
 	--tabText: #fff;
+	--tagHoverBg: rgba(255, 255, 255, 1);
 	--tagBorder: rgba(15, 128, 255, 0.75);
+	--tagHoverText: var(--tagBorder);
 	--flow-space: 1rem;
 }
 /* dark mode */

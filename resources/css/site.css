@@ -1,5 +1,6 @@
 @import "globals/reset.css";
 @import "globals/variables.css";
+@import "globals/forms.css";
 
 html {
 	background-color: var(--bg);
@@ -144,12 +145,14 @@ video {
 }
 
 
-/* Tag lists */
-/*.tags {
-  padding: 1rem 0;
-}*/
-a.tag {
-	padding: 0.25rem 0.5rem;
+/* Tags, buttons */
+button,
+.button,
+.tag {
+	cursor: pointer;
+	font-size: 1rem;
+	line-height: 1;
+	padding: 0.5rem 1rem;
 	background: var(--tagBg);
 	color: var(--tagText);
 	border-radius: 0.5rem;

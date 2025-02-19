@@ -1,24 +1,88 @@
+{{ body_class = "page-archive" }}
+{{ title = "Archive" }}
 <header>
     <h1>Archive</h1>
 </header>
 
-<section>
-    <ul role="list" class="inline center">
-    {{ taxonomy:tags sort="title" }}
-      <li>
-        <a class="tag" href="/posts/tags/{{ slug }}">#{{ title }}</a>
-      </li>
-    {{ /taxonomy:tags }}
-    </ul>
-</section>
+<div class="filtered-entries" id="entries">
+  <div class="container" x-data="entries">
+    <form @submit.prevent="panToResults()" action="/archive" class="filter-form flow">
+      <div class="tag-filters">
 
-<section class="thumbnails">
-    {{ posts = {collection:posts} groupby (date|format('Y') 'year') as 'entries' }}
-      <h2>{{ year }}</h2>
-      <section class="thumbnails">
-      {{ entries }}
-        {{ partial:thumbnail }}
-      {{ /entries }}
-      </section>
-    {{ /posts }}
-</section>
+        <ul role="list" x-remove class="tags filter-tags">
+          {{ tags }}
+            <li>
+              <input id="tag-{{ slug }}" type="checkbox" class="-button" name="tag[]" value="{{ slug }}" {{ if (slug | in_array(get:tag_slugs)) }}checked{{ /if }}>
+              <label for="tag-{{ slug }}"><span>#</span>{{ title }} X</label>
+            </li>
+          {{ /tags }}
+        </ul>
+        <template x-if="tags">
+          <ul role="list" class="tags filter-tags" x-id="['tag-list']">
+          <template x-for="tag in tags" :key="tag.slug">
+            <li x-id="[tag]">
+              <input :id="$id('tag-list', tag.slug)" type="checkbox" class="-button" :value="tag.slug" x-model="filters.tag">
+              <label class="-button" :for="$id('tag-list', tag.slug)" @click="selectedTag()"><span x-html="`#${tag.title}`"></span></label>
+            </li>
+          </template>
+          </ul>
+        </template>
+      </div>
+
+      <div class="search-wrap flex-row">
+        <div>
+          <input type="search" placeholder="Search…" name="q" value="{{ (get:q ?? '') | sanitize }}" x-model="filters.search">
+          <button x-remove class="large button" type="submit">Search</button>
+        </div>
+        <div>
+          <div x-cloak x-transition:enter.duration.200ms x-show="isFiltering()" class="num-results" id="results-notice">
+            <span x-show="filteredEntries.length">Showing <span x-text="filteredEntries.length"></span> result<span x-text="filteredEntries.length == 1 ? '' : 's'"></span>. <button type="button" class="inline-link" @click="clearFilters()">Clear Search</button></span>
+            <span x-show="!filteredEntries.length">No results found. <button type="button" class="inline-link" @click="clearFilters()">Clear Search</button></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="entries-wrap" data-entries-per-page="100">
+        <div aria-labelledby="results-notice" role="region">
+          <template x-if="filteredEntries.length">
+              <div class="entries thumbnails">
+              <template x-for="entry in page">
+                <div class="thumbnail">
+                  <a :href="entry.url">
+                    <img :src="entry.image" alt="">
+                    <div x-html="entry.title"></div>
+                  </a>
+                </div>
+              </template>
+              </div>
+          </template>
+        </div>
+
+        <nav x-cloak class="pagination" aria-label="Select a page" x-show="numPages() > 1">
+          <ul role="list">
+            <li x-cloak x-show="currentPage > 0"><a class="prev" @click.prevent="setPage(currentPage - 1)">&larr; Previous</a></li>
+            <template x-for="idx in numPages">
+              <li :class="idx === currentPage + 1 ? 'current' : ''">
+                <a class="page" x-text="idx" :aria-current="idx === currentPage + 1 ? 'page' : false" @click.prevent="setPage(idx - 1)"></a>
+              </li>
+            </template>
+            <li x-cloak x-show="currentPage < numPages()-1"><a class="next" @click.prevent="setPage(currentPage + 1)">Next &rarr;</a></li>
+          </ul>
+        </nav>
+
+        <section class="thumbnails">
+            {{ posts = {collection:posts} sort='video_date' groupby(video_date | format('Y') | substr(0, 3) 'decade') as 'entries' }}
+              <h2>{{ decade }}0s</h2>
+              <section class="thumbnails">
+              {{ entries }}
+                {{ partial:thumbnail }}
+              {{ /entries }}
+              </section>
+            {{ /posts }}
+        </section>
+
+      </div>
+
+    </form>
+  </div>
+</div>

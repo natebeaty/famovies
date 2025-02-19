@@ -1,0 +1,89 @@
+
+input[type="text"],
+input[type="search"] {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--tagBg);
+  &:focus-visible,
+  &:hover {
+    outline: none;
+    border-color: var(--text);
+  }
+}
+
+.topic-filters {
+  button[data-show-filters] {
+    display: none;
+  }
+}
+
+.filter-tags {
+	text-align: center;
+  li {
+    display: inline-block;
+  }
+}
+
+
+/**
+ * Checkbox buttons (topic filters)
+ */
+input[type="checkbox"].-button {
+  position: absolute;
+  left: 0;
+  opacity: 0.001;
+  white-space: nowrap;
+  & + label {
+    font-size: 1rem;
+    line-height: 1;
+    white-space: nowrap;
+    display: inline-block;
+    pointer-events: auto;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background: var(--tagBg);
+    color: var(--tagText);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    margin: 0 0.25rem 0.25rem;
+    white-space: nowrap;
+    /* if I add X "close" svg */
+    svg {
+      display: none;
+      margin: 0 -10px 0 5px;
+      stroke: var(--text);
+      stroke-width: 1.6px;
+    }
+  }
+
+  &:checked {
+     + label svg {
+      display: inline;
+    }
+    @media (hover: hover) {
+      &:hover + label svg {
+        animation: nudge 2s ease-in-out forwards;
+      }
+      &:active + label svg {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &:checked + label,
+  &:focus-visible + label {
+    text-decoration: none;
+    outline: 1px solid var(--text);
+    background: var(--tagHoverBg);
+    color: var(--tagHoverText);
+  }
+  @media (hover: hover) {
+    &:hover + label {
+      text-decoration: none;
+      outline: 1px solid var(--text);
+    }
+    &:active + label {
+      transform: scale(0.95);
+    }
+  }
+}
