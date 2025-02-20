@@ -6,13 +6,16 @@
 @import "globals/variables.css";
 @import "globals/forms.css";
 
-body {
+html {
 	background-color: var(--bg);
 	background-image: linear-gradient(var(--bg), var(--bg)), var(--backgroundImage);
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
-
+	height: 100%;
+  overflow: hidden;
+}
+body {
 	margin: 0;
 	padding: 20px 10px;
 	color: var(--text);
