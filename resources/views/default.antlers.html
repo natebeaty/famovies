@@ -9,8 +9,8 @@
 
     {{ collection:posts taxonomy:tags="{ tags }" limit="10" as="entries" sort="random" id:not="{ id }" }}
         {{ unless no_results }}
-        <section class="related-posts mt-4">
-            <h3 mb-1>More Like This:</h3>
+        <section class="related-posts mt-12">
+            <h2 class="mb-4 text-center">More Like This:</h2>
             <div class="thumbnails">
                 {{ entries }}
                     {{ partial:thumbnail }}
