@@ -19,9 +19,12 @@ const filteredEntries = {
         },
         itemsPerPage: entriesPerPage,
         currentPage: 0,
-        selectedTag() {
-          // Make sure results are visible
-          // this.panToResults();
+        selectedTag(event, tag) {
+          // If holding meta key, or tag is already selected, do nothing (allow normal checkbox behavior to select multiple or deselect)
+          if (!event.metaKey && this.filters.tag[0] != tag) {
+            event.preventDefault();
+            this.filters.tag = [ tag ];
+          }
         },
         isFiltering() {
           return this.filters.tag.length || this.filters.search !=='';
