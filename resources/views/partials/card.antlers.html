@@ -4,12 +4,14 @@
         {{ if !single }}
             <h3><a href="{{ url }}">{{ title }}</a></h3>
         {{ /if }}
+
         {{ if caption }}
         <div class="caption">
             {{ caption }}
         </div>
         {{ /if }}
-        <div class="card__meta">
+
+        <div class="card__meta mt-3">
             {{ if tags }}
             <div class="tags">
                 {{ tags }}
@@ -18,11 +20,16 @@
             </div>
             {{ /if }}
         </div>
+
         {{ if single }}
-        <div class="feedback sm:flex sm:flex-row justify-between mt-2">
-            <span>Posted {{ date format="M j Y" }}</span>
-            <a href="mailto:nate@clixel.com?subject=Feedback for video: {{ title }}">Email Nate about this video</a>
-        </div>
+        <ul role="list" class="flex flex-row justify-between mt-4 gap-4">
+            <li>
+                Posted <span class="whitespace-nowrap">{{ date format="M j Y" }}</span>
+            </li>
+            <li class="text-right text-balance">
+                <a href="mailto:nate@clixel.com?subject=Feedback for reel: {{ title }}">Email Nate about this reel</a>
+            </li>
+        </ul>
         {{ /if }}
     </div>
 </div>

@@ -1,10 +1,10 @@
 /*@import "tailwindcss/base";*/
 /*@import "tailwindcss/components";*/
-@import "tailwindcss/utilities";
 
 @import "globals/reset.css";
 @import "globals/variables.css";
 @import "globals/forms.css";
+@import "tailwindcss/utilities";
 
 html {
 	background-color: var(--bg);
@@ -127,9 +127,6 @@ footer {
 }
 .card__details {
 	padding: 0 1rem 1rem;
-}
-.card__meta {
-	padding: 1rem 0 0;
 }
 .caption p {
 	margin: 0.5rem 0 0;
