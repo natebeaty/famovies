@@ -3,8 +3,8 @@
         <div class="flex flex-row justify-between">
             <div class="previous flex-1 text-right">
             {{ if prev_page }}
-            <a class="tag" href="{{ prev_page }}">
-                &larr; Previous Page
+            <a rel="prev" class="button" href="{{ prev_page }}">
+                &larr; Prev
             </a>
             {{ /if }}
             </div>
@@ -13,8 +13,8 @@
             </div>
             <div class="next flex-1">
                 {{ if next_page }}
-                <a class="tag flex-1" href="{{ next_page }}">
-                    Next Page &rarr;
+                <a rel="next" class="button" href="{{ next_page }}">
+                    Next &rarr;
                 </a>
                 {{ /if }}
             </div>
