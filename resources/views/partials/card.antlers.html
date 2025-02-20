@@ -13,7 +13,7 @@
             {{ if tags }}
             <div class="tags">
                 {{ tags }}
-                    <a class="tag" href="{{ url }}"><span>#</span>{{ title }}</a>
+                    <a class="tag" href="/posts/archive?tag[]={{ slug }}"><span>#</span>{{ title }}</a>
                 {{ /tags }}
             </div>
             {{ /if }}
