@@ -68,7 +68,7 @@ nav {
     		padding-right: 0.8rem;
     	}
     	img {
-    		max-height: 35px;
+    		max-height: 30px;
     	}
     }
     .button {
@@ -200,18 +200,5 @@ button,
 @media (min-width: 500px) {
 	.thumbnail {
 		flex: 0 1 calc(20% - 4*var(--gap)/5);
-	}
-}
-
-/* Email nate link */
-.feedback {
-	opacity: 0.5;
-	margin-top: 1rem;
-}
-
-.related-posts {
-	margin: 4rem 0 0;
-	h3 {
-		margin: 0 0 1rem;
 	}
 }
