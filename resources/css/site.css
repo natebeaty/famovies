@@ -1,15 +1,18 @@
+/*@import "tailwindcss/base";*/
+/*@import "tailwindcss/components";*/
+@import "tailwindcss/utilities";
+
 @import "globals/reset.css";
 @import "globals/variables.css";
 @import "globals/forms.css";
 
-html {
+body {
 	background-color: var(--bg);
 	background-image: linear-gradient(var(--bg), var(--bg)), var(--backgroundImage);
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
-}
-body {
+
 	margin: 0;
 	padding: 20px 10px;
 	color: var(--text);
@@ -37,28 +40,12 @@ a {
 }
 
 /* Utility */
-.w-full {
-	width: 100%;
-}
 .aspect-video {
 	aspect-ratio: 4 / 3;
-}
-.center {
-	text-align: center;
 }
 ul.inline {
 	li {
 		display: inline-block;
-	}
-}
-.flex-row {
-	display: flex;
-	justify-content: space-between;
-	.flex-1 {
-		flex: 1;
-	}
-	.flex-2 {
-		flex: 2;
 	}
 }
 
@@ -66,9 +53,21 @@ ul.inline {
 nav {
   ul {
     display: flex;
+    li.logo,
     li.credit,
     li.tagline {
       flex: 1;
+    }
+    li.logo {
+    	text-align: left;
+    	a {
+    		display: inline-block;
+    		vertical-align: middle;
+    		padding-right: 1rem;
+    	}
+    	img {
+    		max-height: 35px;
+    	}
     }
     li.tagline {
     	font: 900 14px/1.2 var(--sans-serif);

@@ -1,19 +1,19 @@
 {{ paginate }}
     {{ if prev_page || next_page }}
-        <div class="flex-row">
-            <div class="previous flex-1">
+        <div class="flex flex-row justify-between">
+            <div class="previous flex-1 text-right">
             {{ if prev_page }}
             <a class="tag" href="{{ prev_page }}">
                 &larr; Previous Page
             </a>
             {{ /if }}
             </div>
-            <div class="center flex-2">
+            <div class="center flex-auto text-center">
                 <a href="/posts/archive" class="tag">Archive</a>
             </div>
             <div class="next flex-1">
                 {{ if next_page }}
-                <a class="tag flex-2" href="{{ next_page }}">
+                <a class="tag flex-1" href="{{ next_page }}">
                     Next Page &rarr;
                 </a>
                 {{ /if }}
