@@ -1,10 +1,10 @@
 {{ if video_type === "upload" }}
-    <video controls preload="none" poster="{{ video_poster }}">
+    <video controls muted {{ if single }}autoplay {{ /if }}preload="none" poster="{{ video_poster }}">
         <source src="{{ video }}" type="video/mp4">
     </video>
 {{ else }}
     {{ if video_url | is_embeddable }}
-        <iframe allow="fullscreen" class="w-full aspect-video" src="{{ video_url | embed_url }}"></iframe>
+        <iframe allow="fullscreen" class="w-full aspect-video" src="{{ video_url | embed_url }}{{ if single }}?autoplay=1{{ /if }}"></iframe>
     {{ else }}
         <video controls>
             <source src="{{ video_url }}" type="video/mp4">
